@@ -21,7 +21,7 @@ public class SearchProductTest extends BaseWebTest {
 
         SoftAssertions softAssertions = new SoftAssertions();
 
-        String productName = "Blue Top";
+        var productName = "Blue Top";
 
         var productPage = open("", HomePage.class)
                 .waitForPageLoaded()
@@ -31,9 +31,9 @@ public class SearchProductTest extends BaseWebTest {
                 .clickSearchBtn();
 
         step("Verify that detail detail is visible: product name, category, price, availability, condition, brand", () -> {
-            softAssertions.assertThat(productPage.searchedProductsHeader.getText())
+            softAssertions.assertThat(productPage.searchedProductsHeader.getText().toLowerCase())
                     .as("Verify search product header")
-                    .isEqualTo("Searched Products");
+                    .isEqualTo("searched products");
         });
 
         step("Verify all the products related to search are visible", () -> {
@@ -41,5 +41,7 @@ public class SearchProductTest extends BaseWebTest {
                     .as("Verify searchProductList")
                     .allMatch(SelenideElement::isDisplayed);
         });
+
+        softAssertions.assertAll();
     }
 }
