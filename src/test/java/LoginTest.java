@@ -17,7 +17,7 @@ public class LoginTest extends BaseWebTest{
     @Test
     @DisplayName("Test Case 2: Login User with correct email and password")
     @Owner("Aliia")
-    @Tag("Test Case 2")
+    @Tag("Test_Case_2")
     public void loginTestCorrectParams() {
 
         var firstUser = UserGenerated.randomUser();;
@@ -49,7 +49,7 @@ public class LoginTest extends BaseWebTest{
     @Test
     @DisplayName("Test Case 3: Login User with incorrect email and password")
     @Owner("Aliia")
-    @Tag("Test Case 3")
+    @Tag("Test_Case_3")
     public void loginWithIncorrectParamsTest() {
 
         var email = "aliia1@gmail.com";
@@ -66,7 +66,7 @@ public class LoginTest extends BaseWebTest{
     @Test
     @DisplayName("Test Case 4: Logout User")
     @Owner("Aliia")
-    @Tag("Test Case 4")
+    @Tag("Test_Case_4")
     public void logout() {
 
         var firstUser = UserGenerated.randomUser();

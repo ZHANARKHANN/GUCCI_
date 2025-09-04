@@ -16,7 +16,7 @@ public class CartTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 11: Verify Subscription in Cart page ")
     @Owner("Aidai")
-    @Tag("Test Case 11")
+    @Tag("Test_Case_11")
     public void verifySubscriptionInCartTest() {
 
         Faker faker = new Faker();
@@ -44,7 +44,7 @@ public class CartTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 12: Add Products in Cart")
     @Owner("Aidai")
-    @Tag("Test Case 12")
+    @Tag("Test_Case_12")
     public void verifyCartDetailsTest() {
 
         SoftAssertions softly = new SoftAssertions();

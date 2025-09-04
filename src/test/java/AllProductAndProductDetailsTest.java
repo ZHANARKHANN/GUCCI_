@@ -16,7 +16,7 @@ public class AllProductAndProductDetailsTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 8: Verify All Products and product detail page")
     @Owner("Aliia")
-    @Tag("Test Case 8")
+    @Tag("Test_Case_8")
     public void verifyAllProductAndProductDetailTest() {
 
         SoftAssertions softAssertions = new SoftAssertions();

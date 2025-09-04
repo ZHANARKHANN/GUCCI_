@@ -17,7 +17,7 @@ public class VerifyAddressDetailsInCheckoutTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 23: Verify address details in checkout page")
     @Owner("Ulugbek")
-    @Tag("Test Case 23")
+    @Tag("Test_Case_23")
     public void addToCartFromRecommendedItems() {
 
         var firstUser = UserGenerated.randomUser();

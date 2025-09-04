@@ -11,7 +11,7 @@ public class AddToCartFromRecommendedItemsTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 22: Add to cart from Recommended items")
     @Owner("Ulugbek")
-    @Tag("Test Case 22")
+    @Tag("Test_Case_22")
     public void addToCartFromRecommendedItems() {
 
         var productName = "Blue Top";

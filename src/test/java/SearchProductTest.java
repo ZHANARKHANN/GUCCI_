@@ -16,7 +16,7 @@ public class SearchProductTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 9: Search Product")
     @Owner("Aliia")
-    @Tag("Test Case 9")
+    @Tag("Test_Case_9")
     public void searchProductTest() {
 
         SoftAssertions softAssertions = new SoftAssertions();

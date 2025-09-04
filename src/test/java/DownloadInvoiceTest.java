@@ -15,7 +15,7 @@ public class DownloadInvoiceTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 24: Download Invoice after purchase order")
     @Owner("Ulugbek")
-    @Tag("Test Case 24")
+    @Tag("Test_Case_24")
     public void downloadInvoiceAfterPurchaseOrder() {
 
         var user = UserGenerated.randomUser();

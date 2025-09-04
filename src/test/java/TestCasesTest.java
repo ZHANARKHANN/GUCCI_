@@ -12,7 +12,7 @@ public class TestCasesTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 7: Verify Test Cases Page")
     @Owner("Aliia")
-    @Tag("Test Case 7")
+    @Tag("Test_Case_7")
     public void testCasesTest() {
 
         open("", HomePage.class)

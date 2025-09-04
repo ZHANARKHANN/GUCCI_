@@ -16,7 +16,7 @@ public class RegistrationTest extends BaseWebTest {
     @Test()
     @DisplayName("Test Case 1: Register User")
     @Owner("Aliia")
-    @Tag("Test Case 1")
+    @Tag("Test_Case_1")
     public void registerNewUserTest() {
 
         var firstUser = UserGenerated.randomUser();
@@ -41,7 +41,7 @@ public class RegistrationTest extends BaseWebTest {
     @Test()
     @DisplayName("Test Case 5: Register User with existing email")
     @Owner("Aliia")
-    @Tag("Test Case 5")
+    @Tag("Test_Case_5")
     public void registerUserWithExistingEmailTest() {
 
         var firstUser = UserGenerated.randomUser();

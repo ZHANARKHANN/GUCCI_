@@ -24,7 +24,7 @@ public class PlaceOrderTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 14: Place Order: Register while Checkout")
     @Owner("Aidai")
-    @Tag("Test case: 14")
+    @Tag("Test_case_14")
     public void registerWhileCheckout() {
 
         User firstUser = UserGenerated.randomUser();
@@ -63,7 +63,7 @@ public class PlaceOrderTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 15: Place Order: Register before Checkout")
     @Owner("Aidai")
-    @Tag("Test case: 15")
+    @Tag("Test_Сase_15")
     public void PlaceOrderRegisterBeforeCheckout() {
 
         User firstUser = UserGenerated.randomUser();
@@ -99,7 +99,7 @@ public class PlaceOrderTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 16: Place Order: Login before Checkout")
     @Owner("Kaniet")
-    @Tag("Test case: 16")
+    @Tag("Test_Сase_16")
     public void placeOrderLoginBeforeCheckoutTest() {
 
         var firstUser = UserGenerated.randomUser();
@@ -141,7 +141,7 @@ public class PlaceOrderTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 17: Remove Products From Cart")
     @Owner("Kaniet")
-    @Tag("Test case: 17")
+    @Tag("Test_Сase_17")
     public void removeProductsFromCartTest() {
 
         var blue_top = "Blue Top";
@@ -163,7 +163,7 @@ public class PlaceOrderTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 18: View Category Products")
     @Owner("Kaniet")
-    @Tag("Test case: 18")
+    @Tag("Test_Сase_18")
     public void viewCategoryProductsTest() {
 
         open("", HomePage.class)
@@ -178,7 +178,7 @@ public class PlaceOrderTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 19: View & Cart Brand Products")
     @Owner("Kaniet")
-    @Tag("Test case: 19")
+    @Tag("Test_Сase_19")
     public void viewAndCartBrandsProductsTest() {
 
         open("products", ProductsPage.class)
@@ -193,7 +193,7 @@ public class PlaceOrderTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 20: Search Products and Verify Cart After Login")
     @Owner("Kaniet")
-    @Tag("Test case: 20")
+    @Tag("Test_Сase_20")
     public void searchProductsAndVerifyCartAfterLoginTest() {
 
         User firstUser = UserGenerated.randomUser();

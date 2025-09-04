@@ -15,7 +15,7 @@ public class ContactUsTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 6: Contact Us Form")
     @Owner("Aliia")
-    @Tag("Test Case 6")
+    @Tag("Test_Case_6")
     public void contactUsTest() {
 
         SoftAssertions softAssertions = new SoftAssertions();

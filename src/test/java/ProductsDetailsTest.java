@@ -13,7 +13,7 @@ public class ProductsDetailsTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 13: Verify Product quantity in Cart")
     @Owner("Aidai")
-    @Tag("Test Case 13")
+    @Tag("Test_Case_13")
     public void verifyProductQuantityInCartTest() {
 
         var productName = "Blue Top";

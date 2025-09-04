@@ -14,7 +14,7 @@ public class VerifySubscriptionInHomeTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 10: Verify Subscription in home page")
     @Owner("Aliia")
-    @Tag("Test Case 10")
+    @Tag("Test_Case_10")
     public void testCasesTest() {
 
         SoftAssertions softAssertions = new SoftAssertions();

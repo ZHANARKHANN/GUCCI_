@@ -15,7 +15,7 @@ public class AddReviewOnProductTest extends BaseWebTest {
     @Test
     @DisplayName("Test Case 21: Add review on product")
     @Owner("Ulugbek")
-    @Tag("Test Case 21")
+    @Tag("Test_Case_21")
     public void addReviewOnProduct() {
 
         var productName = "Men Tshirt";
