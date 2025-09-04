@@ -1,4 +1,3 @@
-import com.gucci.entities.User;
 import com.gucci.entities.UserGenerated;
 import com.gucci.layers.web.page.home.HomePage;
 import com.gucci.layers.web.page.signup_login.LoginPage;
@@ -20,7 +19,7 @@ public class RegistrationTest extends BaseWebTest {
     @Tag("Test Case 1")
     public void registerNewUserTest() {
 
-        User firstUser = UserGenerated.randomUser();
+        var firstUser = UserGenerated.randomUser();
 
         open("", HomePage.class)
                 .waitForPageLoaded()
@@ -45,7 +44,7 @@ public class RegistrationTest extends BaseWebTest {
     @Tag("Test Case 5")
     public void registerUserWithExistingEmailTest() {
 
-        User firstUser = UserGenerated.randomUser();
+        var firstUser = UserGenerated.randomUser();
 
        open("", HomePage.class)
                 .waitForPageLoaded()
@@ -65,7 +64,6 @@ public class RegistrationTest extends BaseWebTest {
                 .fillEmail(firstUser.getEmail())
                 .clickSignUpBtn(LoginPage.class)
                 .verifyEmailAddressAlreadyExistMessage();
-
     }
 
 }
