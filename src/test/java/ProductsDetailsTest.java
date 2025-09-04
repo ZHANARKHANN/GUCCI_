@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static io.qameta.allure.Allure.step;
+
 @Tag(Tags.SMOKE)
 @Tag(Tags.WEB)
 public class ProductsDetailsTest extends BaseWebTest {
@@ -32,6 +33,7 @@ public class ProductsDetailsTest extends BaseWebTest {
                     .as("Проверка количества товара")
                     .isEqualTo("4");
         });
+
         softly.assertAll();
     }
 }
