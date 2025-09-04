@@ -8,7 +8,7 @@ tasks.withType<JavaCompile>().configureEach {
 plugins {
     id("java")
     id("io.freefair.lombok") version "8.4"
-    id("io.qameta.allure") version "2.9.4"
+    id("io.qameta.allure") version "2.12.0"
     id("org.gradle.test-retry") version "1.6.2"
 }
 java {
@@ -18,14 +18,14 @@ java {
 }
 allure {
     report {
-        version.set("2.25.0")
+        version.set("2.29.0")
     }
     adapter {
         autoconfigure.set(true)
         aspectjWeaver.set(true)
         frameworks {
             junit5 {
-                adapterVersion.set("2.25.0")
+                adapterVersion.set("2.29.0")
             }
         }
     }
@@ -33,7 +33,7 @@ allure {
 repositories {
     mavenCentral()
 }
-val allureVersion = "2.25.0"
+val allureVersion = "2.29.0"
 val ownerVersion = "1.0.9"
 val jacksonVersion = "2.17.0"
 val assertjVersion = "3.22.0"
