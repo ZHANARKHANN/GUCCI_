@@ -60,8 +60,6 @@ public class AllProductAndProductDetailsTest extends BaseWebTest {
                     .isEqualTo(true);
         });
 
-
         softAssertions.assertAll();
-
     }
 }
