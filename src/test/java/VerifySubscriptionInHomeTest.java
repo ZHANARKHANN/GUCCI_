@@ -23,9 +23,9 @@ public class VerifySubscriptionInHomeTest extends BaseWebTest {
                 .scrollToSubscriptionHeader();
 
         step(" Verify text 'SUBSCRIPTION'", () -> {
-            softAssertions.assertThat(homePage.single_widgetHeader.getText())
+            softAssertions.assertThat(homePage.single_widgetHeader.getText().toLowerCase())
                     .as("SUBSCRIPTION text")
-                    .isEqualTo("Subscription");
+                    .isEqualTo("subscription");
         });
 
         homePage.fillSubscriptionEmail("some@gmail.com")
@@ -34,7 +34,9 @@ public class VerifySubscriptionInHomeTest extends BaseWebTest {
         step("Verify success message 'You have been successfully subscribed!' is visible", () -> {
             softAssertions.assertThat(homePage.subscriptionHeader.getText())
                     .as("subscriptionHeader text")
-                    .isEqualTo("You have been successfully subscribed!c");
+                    .isEqualTo("You have been successfully subscribed!");
         });
+
+        softAssertions.assertAll();
     }
 }
