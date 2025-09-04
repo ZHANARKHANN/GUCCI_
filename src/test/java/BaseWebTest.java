@@ -4,9 +4,11 @@ import com.gucci.layers.web.manager.WebDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.gucci.config.ConfigurationManager.getAppConfig;
 
-//сделать 6 по 10 тест кейсы
 public class BaseWebTest {
 
     private final String BASE_URL = getAppConfig().baseUrl();
@@ -21,6 +23,11 @@ public class BaseWebTest {
                 new AllureSelenide()
                         .screenshots(true)
                         .savePageSource(true));
+    }
+
+    @BeforeEach
+    public void clearCart(){
+        closeWebDriver();
     }
 
     @AfterAll
