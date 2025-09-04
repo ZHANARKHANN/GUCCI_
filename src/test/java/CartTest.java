@@ -27,16 +27,18 @@ public class CartTest extends BaseWebTest {
                 .inputEmail(faker.internet().emailAddress());
 
         step("Проверка присутствия текста Subscription ", () -> {
-                    softly.assertThat(homePage.subscriptionText)
+                    softly.assertThat(homePage.subscriptionText.getText().toLowerCase())
                             .as("verify subscription text")
-                            .isEqualTo("Subscription");
+                            .isEqualTo("subscription");
                 }
         );
         step("Проверка присутствия текста you have been successfully subscribed!", () -> {
-                    softly.assertThat(homePage.subscribedSuccess)
+                    softly.assertThat(homePage.subscribedSuccess.getText())
                             .as("verify you have been successfully subscribed")
                             .isEqualTo("You have been successfully subscribed!");
                 });
+
+        softly.assertAll();
     }
 
     @Test
@@ -46,11 +48,12 @@ public class CartTest extends BaseWebTest {
     public void verifyCartDetailsTest() {
 
         SoftAssertions softly = new SoftAssertions();
-        String product1 = "Blue Top";
-        String product2 = "Men Tshirt";
-        List<String> expectedPrices = List.of("Rs. 500", "Rs. 400");
+        var product1 = "Sleeveless Dress";
+        var product2 = "Men Tshirt";
+        List<String> expectedPrices = List.of("Rs. 1000", "Rs. 400");
         List<String> expectedQuantities = List.of("1", "1");
-        List<String> expectedTotals = List.of("Rs. 500", "Rs. 400");
+        List<String> expectedTotals = List.of("Rs. 1000", "Rs. 400");
+
         CartPage cartPage = open("", HomePage.class)
                 .waitForPageLoaded()
                 .addProductToCart(product1)
@@ -76,6 +79,7 @@ public class CartTest extends BaseWebTest {
                     .as("Verify product totals")
                     .containsExactlyInAnyOrderElementsOf(expectedTotals);
         });
+
         softly.assertAll();
     }
 }
