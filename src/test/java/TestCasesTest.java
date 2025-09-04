@@ -15,7 +15,7 @@ public class TestCasesTest extends BaseWebTest {
     @Tag("Test Case 7")
     public void testCasesTest() {
 
-        var testCasesPage = open("", HomePage.class)
+        open("", HomePage.class)
                 .switchBetweenSection("Test Cases", TestCasesPage.class)
                 .waitForPageLoaded();
     }
