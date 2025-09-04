@@ -20,7 +20,7 @@ public class LoginTest extends BaseWebTest{
     @Tag("Test Case 2")
     public void loginTestCorrectParams() {
 
-        User firstUser = UserGenerated.randomUser();;
+        var firstUser = UserGenerated.randomUser();;
 
          open("", HomePage.class)
                  .waitForPageLoaded()
@@ -52,8 +52,8 @@ public class LoginTest extends BaseWebTest{
     @Tag("Test Case 3")
     public void loginWithIncorrectParamsTest() {
 
-        String email = "aliia1@gmail.com";
-        String password = "123";
+        var email = "aliia1@gmail.com";
+        var password = "123";
 
       open("", HomePage.class)
                 .waitForPageLoaded()
@@ -69,7 +69,8 @@ public class LoginTest extends BaseWebTest{
     @Tag("Test Case 4")
     public void logout() {
 
-        User firstUser = UserGenerated.randomUser();;
+        var firstUser = UserGenerated.randomUser();
+
         open("", HomePage.class)
                 .waitForPageLoaded()
                 .switchBetweenSection(SIGN_IN_LOGIN, LoginPage.class)
