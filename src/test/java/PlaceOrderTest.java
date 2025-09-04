@@ -1,9 +1,8 @@
-
-import com.gucci.data.Sections;
 import com.gucci.entities.User;
 import com.gucci.entities.UserGenerated;
 import com.gucci.layers.web.page.home.HomePage;
 import com.gucci.layers.web.page.selections.CartPage;
+import com.gucci.layers.web.page.selections.CheckoutPage;
 import com.gucci.layers.web.page.selections.ProductsPage;
 import com.gucci.layers.web.page.signup_login.LoginPage;
 import com.gucci.layers.web.page.signup_login.SignUpPage;
@@ -17,25 +16,27 @@ import java.util.List;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 import static com.gucci.data.Sections.*;
+
 @Tag(Tags.SMOKE)
 @Tag(Tags.WEB)
 public class PlaceOrderTest extends BaseWebTest {
 
     @Test
-    @DisplayName("Place Order: Register while Checkout")
+    @DisplayName("Test Case 14: Place Order: Register while Checkout")
     @Owner("Aidai")
     @Tag("Test case: 14")
     public void registerWhileCheckout() {
 
         User firstUser = UserGenerated.randomUser();
-
         var productName = "Blue Top";
+        var textArea = "Blue Top cringe";
+
         open("", HomePage.class)
                 .waitForPageLoaded()
                 .addProductToCart(productName)
                 .clickViewCart()
                 .waitForPageLoaded()
-                .clickProceedCheckout()
+                .clickProceedCheckout(CartPage.class)
                 .clickLoginRegister()
                 .fillName(firstUser.getName())
                 .fillEmail(firstUser.getEmail())
@@ -46,26 +47,28 @@ public class PlaceOrderTest extends BaseWebTest {
                 .clickContinueBtn()
                 .verifyLoggedAsUserNameVisible(firstUser.getName())
                 .clickCartBtn()
-                .clickProceedCheckout()
+                .clickProceedCheckout(CheckoutPage.class)
                 .verifyAddressDetailsText()
                 .verifyReviewYourOrderText()
-                .inputFormControl()
-                .clickPlaceOrder()
+                .inputDescriptionTextArea(textArea)
+                .clickPlaceOrderBtn()
                 .fillPaymentOrder()
                 .clickPayAndConfirmOrder()
                 .verifyOrderPlacedSuccessfully()
                 .clickDeleteAccount()
-                .waitForPageLoaded();
+                .waitForPageLoaded()
+                .clickContinue();
     }
 
     @Test
-    @DisplayName("Place Order: Login before Checkout")
+    @DisplayName("Test Case 15: Place Order: Register before Checkout")
     @Owner("Aidai")
     @Tag("Test case: 15")
-    public void PlaceOrderLoginBeforeCheckout() {
+    public void PlaceOrderRegisterBeforeCheckout() {
 
         User firstUser = UserGenerated.randomUser();
         var productName = "Blue Top";
+        var textArea = "Blue Top cringe";
         open("", HomePage.class)
                 .waitForPageLoaded()
                 .switchBetweenSection(SIGN_IN_LOGIN, LoginPage.class)
@@ -75,15 +78,17 @@ public class PlaceOrderTest extends BaseWebTest {
                 .clickSignUpBtn(SignUpPage.class)
                 .signUpNewUser(firstUser)
                 .clickContinueBtn()
+                .waitForPageLoaded()
                 .verifyLoggedAsUserNameVisible(firstUser.getName())
                 .addProductToCart(productName)
+                .clickContinueShopping()
                 .clickCartBtn()
                 .waitForPageLoaded()
-                .clickProceedCheckout()
+                .clickProceedCheckout(CheckoutPage.class)
                 .verifyAddressDetailsText()
                 .verifyReviewYourOrderText()
-                .inputFormControl()
-                .clickPlaceOrder()
+                .inputDescriptionTextArea(textArea)
+                .clickPlaceOrderBtn()
                 .fillPaymentOrder()
                 .clickPayAndConfirmOrder()
                 .verifyOrderPlacedSuccessfully()
@@ -92,15 +97,15 @@ public class PlaceOrderTest extends BaseWebTest {
     }
 
     @Test
-    @DisplayName("Place Order: Login before Checkout")
+    @DisplayName("Test Case 16: Place Order: Login before Checkout")
     @Owner("Kaniet")
     @Tag("Test case: 16")
-    public void placeOrderBeforeCheckoutTest() {
+    public void placeOrderLoginBeforeCheckoutTest() {
 
-        User firstUser = UserGenerated.randomUser();
-
+        var firstUser = UserGenerated.randomUser();
         var blue_top = "Blue Top";
         var men_tShirt = "Men Tshirt";
+        var textArea = "Blue Top cringe";
 
         open("", HomePage.class)
                 .waitForPageLoaded()
@@ -118,13 +123,13 @@ public class PlaceOrderTest extends BaseWebTest {
                 .clickContinueShopping()
                 .addProductToCart(men_tShirt)
                 .clickContinueShopping()
-                .switchBetweenSection(CART_PAGE, CartPage.class)
+                .switchBetweenSection(CART, CartPage.class)
                 .waitForPageLoaded()
-                .clickProceedCheckout()
+                .clickProceedCheckout(CheckoutPage.class)
                 .verifyAddressDetailsText()
                 .verifyReviewYourOrderText()
-                .inputFormControl()
-                .clickPlaceOrder()
+                .inputDescriptionTextArea(textArea)
+                .clickPlaceOrderBtn()
                 .fillPaymentOrder()
                 .clickPayAndConfirmOrder()
                 .verifyOrderPlacedSuccessfully()
@@ -134,7 +139,7 @@ public class PlaceOrderTest extends BaseWebTest {
     }
 
     @Test
-    @DisplayName("Remove Products From Cart")
+    @DisplayName("Test Case 17: Remove Products From Cart")
     @Owner("Kaniet")
     @Tag("Test case: 17")
     public void removeProductsFromCartTest() {
@@ -148,7 +153,7 @@ public class PlaceOrderTest extends BaseWebTest {
                 .clickContinueShopping()
                 .addProductToCart(men_tShirt)
                 .clickContinueShopping()
-                .switchBetweenSection(CART_PAGE, CartPage.class)
+                .switchBetweenSection(CART, CartPage.class)
                 .waitForPageLoaded()
                 .clickDeleteProductFromCart()
                 .clickDeleteProductFromCart()
@@ -156,7 +161,7 @@ public class PlaceOrderTest extends BaseWebTest {
     }
 
     @Test
-    @DisplayName("View Category Products")
+    @DisplayName("Test Case 18: View Category Products")
     @Owner("Kaniet")
     @Tag("Test case: 18")
     public void viewCategoryProductsTest() {
@@ -171,7 +176,7 @@ public class PlaceOrderTest extends BaseWebTest {
     }
 
     @Test
-    @DisplayName("View & Cart Brand Products")
+    @DisplayName("Test Case 19: View & Cart Brand Products")
     @Owner("Kaniet")
     @Tag("Test case: 19")
     public void viewAndCartBrandsProductsTest() {
@@ -186,7 +191,7 @@ public class PlaceOrderTest extends BaseWebTest {
     }
 
     @Test
-    @DisplayName("Search Products and Verify Cart After Login")
+    @DisplayName("Test Case 20: Search Products and Verify Cart After Login")
     @Owner("Kaniet")
     @Tag("Test case: 20")
     public void searchProductsAndVerifyCartAfterLoginTest() {
@@ -214,8 +219,8 @@ public class PlaceOrderTest extends BaseWebTest {
                 .verifyLoggedAsUserNameVisible(firstUser.getName())
                 .clickLogout();
 
-        var cartPage =  open("", HomePage.class)
-                .switchBetweenSection(PRODUCT_PAGE, ProductsPage.class)
+        var cartPage = open("", HomePage.class)
+                .switchBetweenSection(PRODUCT, ProductsPage.class)
                 .waitForPageLoaded()
                 .fillSearchInput(blue_top)
                 .clickSearchBtn()
@@ -236,7 +241,7 @@ public class PlaceOrderTest extends BaseWebTest {
                 .clickSignupLoginBtn()
                 .waitForPageLoaded()
                 .loginUser(email, password, HomePage.class)
-                .switchBetweenSection(CART_PAGE, CartPage.class);
+                .switchBetweenSection(CART, CartPage.class);
 
         step("Проверка выбранных продуктов в корзине", () -> {
             List<String> expectedProducts = List.of(blue_top);
