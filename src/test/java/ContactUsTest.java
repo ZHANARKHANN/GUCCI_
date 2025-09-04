@@ -23,7 +23,8 @@ public class ContactUsTest extends BaseWebTest {
         var homePage = open("", HomePage.class)
                 .waitForPageLoaded()
                 .switchBetweenSection("Contact us", ContactUsPage.class)
-                .fillContactUsForm("aliia", "aliia@gmail.com", "subject sum text", "message")
+                .fillContactUsForm("aliia", "aliia@gmail.com", "subject sum text",
+                        "message")
                 .clickSubmit()
                 .clickAlertAccept();
 
@@ -33,9 +34,9 @@ public class ContactUsTest extends BaseWebTest {
                             .isEqualTo("Success! Your details have been submitted successfully.");
                 }
         );
+
         softAssertions.assertAll();
 
         homePage.clickHome();
-
     }
 }
