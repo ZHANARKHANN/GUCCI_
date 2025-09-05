@@ -70,14 +70,13 @@ tasks.register<Test>("smokeTest") {
     tasks.test {
         useJUnitPlatform()
 
-        // читаем -Dtags=... из Jenkins
-        val tagsProp = System.getProperty("tags")
-        if (!tagsProp.isNullOrBlank()) {
+        val tagsProp = System.getProperty("tags")?.trim()
+        if (!tagsProp.isNullOrEmpty()) {
             val tags = tagsProp.split(",").map { it.trim() }.filter { it.isNotEmpty() }
-            useJUnitPlatform {
-                includeTags(*tags.toTypedArray())
-            }
-            println(">> Запускаем только теги: $tags")
+            useJUnitPlatform { includeTags(*tags.toTypedArray()) }
+            println(">> includeTags: $tags")
+        } else {
+            println(">> tags not provided -> running ALL tests")
         }
     }
 }
