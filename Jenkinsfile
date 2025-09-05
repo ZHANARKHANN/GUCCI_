@@ -1,3 +1,12 @@
+// --- bootstrap: заставляем Jenkins показать параметры при первом запуске из SCM ---
+properties([
+  parameters([
+    string(name: 'TAGS', defaultValue: 'SMOKE', description: 'JUnit5 tags, comma-separated'),
+    string(name: 'GRADLE_ARGS', defaultValue: '', description: 'Optional Gradle args (e.g. --info)')
+  ])
+])
+// --- end bootstrap ---
+
 pipeline {
   agent any
 
