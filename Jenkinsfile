@@ -18,7 +18,7 @@ pipeline {
   }
 
   stages {
-    // Bootstrap: один раз пропишет параметры в конфиг job-а, чтобы появилась кнопка
+    // ❶ Bootstrap: один раз пропишет параметры в конфиг этой джобы
     stage('Init (bootstrap params)') {
       steps {
         script {
@@ -55,9 +55,7 @@ pipeline {
       }
       post {
         always {
-          // junit XML (если есть) — не обязательно, но полезно
           junit allowEmptyResults: true, testResults: '**/test-results/test/*.xml, **/surefire-reports/*.xml'
-          // сложим сырье Allure как артефакты
           archiveArtifacts artifacts: "${env.ALLURE_RESULTS}/**", fingerprint: true, onlyIfSuccessful: false
         }
       }
@@ -66,7 +64,6 @@ pipeline {
     stage('Allure') {
       when { expression { return fileExists(env.ALLURE_RESULTS) } }
       steps {
-        // Плагин Allure должен быть установлен в Jenkins
         allure includeProperties: false, jdk: '', results: [[path: "${env.ALLURE_RESULTS}", reportBuildPolicy: 'ALWAYS']]
       }
     }
