@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 @Tag(Tags.SMOKE)
-@Tag(Tags.WEB)
+
 public class TestCasesTest extends BaseWebTest {
 
     @Test

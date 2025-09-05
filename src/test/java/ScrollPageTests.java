@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 @Tag(Tags.SMOKE)
-@Tag(Tags.WEB)
+
 public class ScrollPageTests extends BaseWebTest {
 
     @Test

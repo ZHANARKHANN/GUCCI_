@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
-@Tag(Tags.SMOKE)
+
 @Tag(Tags.WEB)
 public class CartTest extends BaseWebTest {
 

@@ -18,7 +18,7 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 import static com.gucci.data.Sections.*;
 
 @Tag(Tags.SMOKE)
-@Tag(Tags.WEB)
+
 public class PlaceOrderTest extends BaseWebTest {
 
     @Test

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import static com.gucci.data.Sections.PRODUCT;
 
 @Tag(Tags.SMOKE)
-@Tag(Tags.WEB)
+
 public class AddReviewOnProductTest extends BaseWebTest {
 
     @Test

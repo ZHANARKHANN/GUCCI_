@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import static com.gucci.data.Sections.SIGN_IN_LOGIN;
 
 @Tag(Tags.SMOKE)
-@Tag(Tags.WEB)
+
 public class VerifyAddressDetailsInCheckoutTest extends BaseWebTest {
 
     @Test

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 
-@Tag(Tags.SMOKE)
+
 @Tag(Tags.WEB)
 public class VerifySubscriptionInHomeTest extends BaseWebTest {
 
