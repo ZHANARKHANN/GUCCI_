@@ -1,4 +1,3 @@
-
 group = "com.gucci"
 version = "1.0-SNAPSHOT"
 
@@ -66,5 +65,18 @@ tasks.register<Test>("smokeTest") {
     description = "Runs tests tagged with @Tag(\"Smoke\")"
     useJUnitPlatform {
         includeTags("Smoke")
+    }
+
+    tasks.test {
+        useJUnitPlatform()
+
+        val tagsProp = System.getProperty("tags")
+        if (!tagsProp.isNullOrBlank()) {
+            val tags = tagsProp.split(",").map { it.trim() }.filter { it.isNotEmpty() }
+            useJUnitPlatform {
+                includeTags(*tags.toTypedArray())
+            }
+            println(">> Запускаются только теги: $tags")
+        }
     }
 }
